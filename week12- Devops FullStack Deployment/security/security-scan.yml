@@ -1,0 +1,14 @@
+name: Security Scan
+
+on: [push]
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Scan with Trivy
+        run: |
+          docker run aquasec/trivy image myapp
